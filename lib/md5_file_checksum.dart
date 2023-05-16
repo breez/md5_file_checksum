@@ -4,7 +4,7 @@ import 'dart:io';
 import 'src/interface.dart';
 
 class Md5FileChecksum {
-  static late final _api = Md5FileChecksumApi();
+  static final _api = Md5FileChecksumApi();
 
   /// Calculates the MD5 checksum of a file
   ///
@@ -12,7 +12,7 @@ class Md5FileChecksum {
   ///
   /// Throws a [FileSystemException] if the file does not exist.
   /// Throws a [PlatformException] if some other error occurs.
-  static Future<String> getFileChecksum({
+  static Future<String?> getFileChecksum({
     required String filePath,
   }) async {
     final fileExists = File(filePath).existsSync();

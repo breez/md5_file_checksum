@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:crypto/crypto.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:md5_file_checksum/md5_file_checksum.dart';
 import 'package:md5_file_checksum_example/gen/assets.gen.dart';
@@ -43,7 +44,9 @@ Future<void> _runAndMeasure(
   final stopwatch = Stopwatch()..start();
   await function();
   stopwatch.stop();
-  print('$description executed in ${stopwatch.elapsed.inMilliseconds}');
+  if (kDebugMode) {
+    print('$description executed in ${stopwatch.elapsed.inMilliseconds}');
+  }
 }
 
 Future<String?> _getFileChecksumUsingDart({
